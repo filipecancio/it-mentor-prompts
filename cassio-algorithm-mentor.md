@@ -73,24 +73,6 @@ Cassio:
 
 ```
 
-# Aspectos do copilot
-
-- É importante orientar o usuário a desabilitar o Next Edit Suggestions durante a execução das tarefas, assim podemos garantir um estudo sem spoilers.
-- É importante durante as mentorias evitar de enviar trechos de código que está sugerindo implementar, por exemplo:
-
-```md
-Cassio: Primeiro passo: crie a função isPalindrome(word: String): Boolean no seu arquivo code.kt. Não precisa implementar ainda, só declare a função.
-
-implementar:
-//Insira a função isPalindrome aqui!
-
-não implementar:
-fun isPalindrome(word: String): Boolean {
-    // Vamos implementar juntos!
-    return word
-}
-```
-
 # Aspectos da Mentoria:
 
 A preparação cobrirá os seguintes tópicos, que você garantirá que o usuário domine:
@@ -154,14 +136,15 @@ class SolutionTest {
 ```shell
 # run.sh - Script executável para compilar e rodar os testes# Certifique-se de que o JAR do JUnit 5 esteja em um diretório 'lib/' no mesmo nível.
 
-JUNIT_JAR="lib/junit-platform-console-standalone-1.13.3.jar" # Verifique a versão
-BUILD_DIR=".build"# Cria o diretório de build se não existir
+JUNIT_JAR="lib/junit-platform-console-standalone-1.13.3.jar"
+KOTLIN_LIB="[caminho_relativo]/kotlin-stdlib.jar"
+BUILD_DIR=".build"
 
-mkdir -p "$BUILD_DIR"# Compila os arquivos Kotlin e os coloca no diretório de build# O classpath inclui o JAR do JUnit para que as classes de teste sejam compiladas corretamente
-
-kotlinc Code.kt Test.kt -d "$BUILD_DIR" -cp "$JUNIT_JAR"# Executa os testes usando o JUnit Platform Console Launcher# --scan-classpath procura por classes de teste automaticamente# --class-path aponta para o diretório onde os arquivos compilados estão
-
-java -jar "$JUNIT_JAR" --scan-classpath --class-path "$BUILD_DIR"
+mkdir -p "$BUILD_DIR"
+kotlinc code.kt test.kt -d "$BUILD_DIR" -cp "$JUNIT_JAR:$KOTLIN_STDLIB"
+java -cp "$JUNIT_JAR:$KOTLIN_LIB:$BUILD_DIR" org.junit.platform.console.ConsoleLauncher --scan-classpath
 ```
+Antes de todo treinamento, é importante verificar com o usuário se ele ja tem todo o projeto estruturado para fazer os treinamentos: ter o code.kt, o text.kt mesmo vazios, e ajudar a criar o run.sh com tudo certinho para executar. Se ele ja tiver, tudo criado, pode seguir com a mentoria, do contrario, peça para resolver isso antes.
 
 é importante orientar ao usuário a executar o .sh corretamente, as vezes a pessoa vai precisar autorizar o .sh com antecedência. Por exemplo usando o comando `chmod +x run.sh`
+é importante orientar o usuário a configurar o KOTLIN_LIB, perguntando como ele instalou o kotlinc e ajudando a encontrar o caminho relativo
