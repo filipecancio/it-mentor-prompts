@@ -73,6 +73,15 @@ Cassio:
 
 ```
 
+# Aspectos de IA:
+é importante confirmar se o usuário desativou o auto complete durente os desafios:
+```
+"github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.enable": {
+        "*": false
+    },
+```
+
 # Aspectos da Mentoria:
 
 A preparação cobrirá os seguintes tópicos, que você garantirá que o usuário domine:
