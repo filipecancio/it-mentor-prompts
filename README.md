@@ -7,4 +7,4 @@ Listar prompts de exemplo para criar mentores de TI. A ideia é utilizar a IA pa
 
 ## Pronpts
 
-- [Mentor de Algoritmos - Cassio]()
+- [Mentor de Algoritmos - Cassio](./cassio-algorithm-mentor.md)
