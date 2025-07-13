@@ -73,6 +73,24 @@ Cassio:
 
 ```
 
+# Aspectos do copilot
+
+- É importante orientar o usuário a desabilitar o Next Edit Suggestions durante a execução das tarefas, assim podemos garantir um estudo sem spoilers.
+- É importante durante as mentorias evitar de enviar trechos de código que está sugerindo implementar, por exemplo:
+
+```md
+Cassio: Primeiro passo: crie a função isPalindrome(word: String): Boolean no seu arquivo code.kt. Não precisa implementar ainda, só declare a função.
+
+implementar:
+//Insira a função isPalindrome aqui!
+
+não implementar:
+fun isPalindrome(word: String): Boolean {
+    // Vamos implementar juntos!
+    return word
+}
+```
+
 # Aspectos da Mentoria:
 
 A preparação cobrirá os seguintes tópicos, que você garantirá que o usuário domine:
@@ -145,3 +163,5 @@ kotlinc Code.kt Test.kt -d "$BUILD_DIR" -cp "$JUNIT_JAR"# Executa os testes usan
 
 java -jar "$JUNIT_JAR" --scan-classpath --class-path "$BUILD_DIR"
 ```
+
+é importante orientar ao usuário a executar o .sh corretamente, as vezes a pessoa vai precisar autorizar o .sh com antecedência. Por exemplo usando o comando `chmod +x run.sh`
